@@ -13,8 +13,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Show Usage
-        run: df -h
-
       - name: Show file
         run: ls -la
+
+      - name: Fake Test
+        run: 
+             echo "running fake test....."
+             sleep 3
+             echo "all test passed"
+
+      - name: Show Usage
+        run: df -h
+        
