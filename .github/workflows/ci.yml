@@ -16,11 +16,11 @@ jobs:
       - name: Show file
         run: ls -la
 
-      - name: Fake Test
+      - name: Build and run Docker Image
         run: |
-             echo "running fake test....."
-             sleep 3
-             echo "all test passed"
+             echo "Building docker image"
+             docker build -t first_ci_image .
+             docker run first_ci_image
 
       - name: Show Usage
         run: df -h
