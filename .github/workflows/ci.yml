@@ -19,7 +19,7 @@ jobs:
       - name: Fake Test
         run: |
              echo "running fake test....."
-             exit 1
+             sleep 3
              echo "all test passed"
 
       - name: Show Usage
