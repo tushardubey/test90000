@@ -17,7 +17,7 @@ jobs:
         run: ls -la
 
       - name: Fake Test
-        run: 
+        run: |
              echo "running fake test....."
              exit 1
              echo "all test passed"
