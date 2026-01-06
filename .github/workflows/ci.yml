@@ -25,11 +25,12 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
+          context: . 
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/test:latest
 
       - name: Docker Run Image
-        uses: docker run ${{ secrets.DOCKERHUB_USERNAME }}/test:latest
+        run: docker run ${{ secrets.DOCKERHUB_USERNAME }}/test:latest
         
       - name: Show Usage
         run: df -h
