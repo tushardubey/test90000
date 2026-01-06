@@ -27,10 +27,10 @@ jobs:
         with:
           context: . 
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/test:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/test:latest
 
       - name: Docker Run Image
-        run: docker run ${{ secrets.DOCKERHUB_USERNAME }}/test:latest
+        run: docker run ${{ secrets.DOCKER_USERNAME }}/test:latest
         
       - name: Show Usage
         run: df -h
