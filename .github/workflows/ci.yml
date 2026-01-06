@@ -16,12 +16,21 @@ jobs:
       - name: Show file
         run: ls -la
 
-      - name: Build and run Docker Image
-        run: |
-             echo "Building docker image"
-             docker build -t first_ci_image .
-             docker run first_ci_image
+      - name: Login in docker hub
+        uses: docker/login-action@v3
+        with: 
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/test:latest
 
+      - name: Docker Run Image
+        uses: docker run ${{ secrets.DOCKERHUB_USERNAME }}/test:latest
+        
       - name: Show Usage
         run: df -h
         
