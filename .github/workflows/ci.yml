@@ -29,8 +29,17 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/test:latest
 
-      - name: Docker Run Image
-        run: docker run ${{ secrets.DOCKER_USERNAME }}/test:latest
+      - name: Deploy on EC2
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            docker pull ${{ secrets.DOCKER_USERNAME }}/test:latest
+            docker rm -f myapp || true
+            docker run -d --restart unless-stopped --name myapp ${{ secrets.DOCKER_USERNAME }}/test:latest
+        
         
       - name: Show Usage
         run: df -h
