@@ -68,11 +68,9 @@ set -e
 This ensures:
 
 Pipeline stops immediately on any failure
-
 No silent or partial deployments
-
 Clear and reliable feedback from CI/CD runs
-set -e
+
 
 ## Repo_Structure
 .
@@ -86,43 +84,32 @@ set -e
 ▶️ How It Works (Step-by-Step)
 
 Developer pushes code to GitHub
-
 GitHub Actions pipeline starts automatically
-
 Docker image is built and tagged
-
 Image is pushed to Docker Hub
-
 GitHub Actions connects to EC2 via SSH
-
 Existing container is replaced with the new version
-
 Application is updated on the server
+
+---
 
 🎯 Key Learning Outcomes
 
 Built a complete CI/CD pipeline from scratch
-
 Implemented Docker image versioning
-
 Used GitHub Secrets for secure credential management
-
 Automated deployments to AWS EC2
-
 Debugged real-world CI/CD and SSH issues
-
 Applied production-grade fail-fast deployment strategy
+
+---
 
 📌 Future Improvements
 
 Infrastructure provisioning using Terraform
-
 Zero-downtime deployments
-
 Kubernetes-based deployment
-
 Health checks and monitoring integration
-
 Blue-Green or Canary deployments
 
 👤 Author
@@ -131,6 +118,5 @@ Tushar
 DevOps / Cloud Enthusiast
 
 ⭐ If you found this project helpful, feel free to star the repository!
-
 
 ---
