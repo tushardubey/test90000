@@ -27,7 +27,9 @@ jobs:
         with:
           context: . 
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/test:latest
+          tags: |
+             ${{ secrets.DOCKER_USERNAME }}/test:latest
+             ${{ secrets.DOCKER_USERNAME }}/test:${{ github.sha }}
 
       - name: Deploy on EC2
         uses: appleboy/ssh-action@v1.0.0
