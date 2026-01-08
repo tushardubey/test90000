@@ -38,6 +38,7 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+            setb -e
             docker pull ${{ secrets.DOCKER_USERNAME }}/test:latest
             docker rm -f myapp || true
             docker run -d --restart unless-stopped --name myapp ${{ secrets.DOCKER_USERNAME }}/test:latest
