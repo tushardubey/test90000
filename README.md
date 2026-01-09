@@ -59,7 +59,7 @@ GitHub Push
 
 ## 🧪 Fail-Fast Deployment Strategy
 
-The deployment script uses:
+The deployment script uses: 
 
 ```bash
 set -e
